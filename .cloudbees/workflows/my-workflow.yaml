@@ -1,6 +1,6 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: My workflow
+name: My automation
 
 on:
   push:
@@ -11,8 +11,8 @@ jobs:
   ci-job:
     steps:
       - uses: docker://alpine/git:latest
-        run: | 
-         git config --global --add safe.directory/cloudbees/workspace
+        run: |
+          git config --global --add safe.directory /cloudbees/workspace
       - name: checkout
         uses: cloudbees-io/checkout@v1
       - name: Build Go app
